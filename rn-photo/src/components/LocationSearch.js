@@ -7,7 +7,16 @@ import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 
 const LocationSearch = forwardRef(
-  ({ styles, onPress, isLoading, isSelected, iconVisible }, ref) => {
+  (
+    {
+      styles,
+      onPress,
+      isLoading = false,
+      isSelected = false,
+      iconVisible = true,
+    },
+    ref
+  ) => {
     return (
       <View style={[defaultStyles.container, styles?.container]}>
         <GooglePlacesAutocomplete
@@ -44,12 +53,6 @@ const LocationSearch = forwardRef(
 );
 
 LocationSearch.displayName = 'LocationSearch';
-
-LocationSearch.defaultProps = {
-  isLoading: false,
-  isSelected: false,
-  iconVisible: true,
-};
 
 LocationSearch.propTypes = {
   styles: PropTypes.object,
